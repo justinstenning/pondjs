@@ -32,9 +32,9 @@ export class Fill<T extends Key> extends Processor<T, T> {
 
     // Internal state
     private _previous: Event<T>;
-    private _keyCount;
-    private _lastGoodLinear;
-    private _linearFillCache;
+    private _keyCount: { [key: string]: number };
+    private _lastGoodLinear: Event<T>;
+    private _linearFillCache: Array<Event<T>>;
 
     constructor(options: FillOptions) {
         super();

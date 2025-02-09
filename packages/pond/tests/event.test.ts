@@ -7,7 +7,7 @@ import * as Immutable from "immutable";
 import { event, Event, timeEvent } from "../src/event";
 import { avg, sum } from "../src/functions";
 import { index } from "../src/index";
-import { time } from "../src/time";
+import { Time, time } from "../src/time";
 import { timerange } from "../src/timerange";
 
 const DATE = new Date("2015-04-22T03:30:00Z");
@@ -162,9 +162,9 @@ describe("Event list merge", () => {
         const event2 = event(t, Immutable.Map({ c: 2 }));
         const merged = Event.merge(Immutable.List([event1, event2]));
 
-        expect(merged.get(0).get("a")).toBe(5);
-        expect(merged.get(0).get("b")).toBe(6);
-        expect(merged.get(0).get("c")).toBe(2);
+        expect(merged.get(0)?.get("a")).toBe(5);
+        expect(merged.get(0)?.get("b")).toBe(6);
+        expect(merged.get(0)?.get("c")).toBe(2);
     });
 
     it("can merge multiple indexed events together", () => {
@@ -172,9 +172,9 @@ describe("Event list merge", () => {
         const event2 = event(index("1h-396206"), Immutable.Map({ c: 2 }));
         const merged = Event.merge(Immutable.List([event1, event2]));
 
-        expect(merged.get(0).get("a")).toBe(5);
-        expect(merged.get(0).get("b")).toBe(6);
-        expect(merged.get(0).get("c")).toBe(2);
+        expect(merged.get(0)?.get("a")).toBe(5);
+        expect(merged.get(0)?.get("b")).toBe(6);
+        expect(merged.get(0)?.get("c")).toBe(2);
     });
 
     it("can merge multiple timerange events together", () => {
@@ -185,9 +185,9 @@ describe("Event list merge", () => {
         const event2 = event(tr, Immutable.Map({ c: 2 }));
         const merged = Event.merge(Immutable.List([event1, event2]));
 
-        expect(merged.get(0).get("a")).toBe(5);
-        expect(merged.get(0).get("b")).toBe(6);
-        expect(merged.get(0).get("c")).toBe(2);
+        expect(merged.get(0)?.get("a")).toBe(5);
+        expect(merged.get(0)?.get("b")).toBe(6);
+        expect(merged.get(0)?.get("c")).toBe(2);
     });
 
     it("can deeply merge multiple events together", () => {
@@ -196,10 +196,10 @@ describe("Event list merge", () => {
         const event2 = event(t, Immutable.fromJS({ d: 2, b: { e: 4 } }));
         const merged = Event.merge(Immutable.List([event1, event2]), true);
 
-        expect(merged.get(0).get("a")).toBe(5);
-        expect(merged.get(0).get("b.c")).toBe(6);
-        expect(merged.get(0).get("d")).toBe(2);
-        expect(merged.get(0).get("b.e")).toBe(4);
+        expect(merged.get(0)?.get("a")).toBe(5);
+        expect(merged.get(0)?.get("b.c")).toBe(6);
+        expect(merged.get(0)?.get("d")).toBe(2);
+        expect(merged.get(0)?.get("b.e")).toBe(4);
     });
 });
 
@@ -246,14 +246,14 @@ describe("Event list combining", () => {
         ];
         const result = Event.combine(Immutable.List(events), sum());
 
-        expect(result.get(0).get("a")).toBe(8);
-        expect(result.get(0).get("b")).toBe(11);
-        expect(result.get(0).get("c")).toBe(14);
+        expect(result.get(0)?.get("a")).toBe(8);
+        expect(result.get(0)?.get("b")).toBe(11);
+        expect(result.get(0)?.get("c")).toBe(14);
     });
 
     it("can pass no events to sum and get back an empty list", () => {
         const t = new Date("2015-04-22T03:30:00Z");
-        const events = Immutable.List();
+        const events = Immutable.List<Event>();
         const result1 = Event.combine(events, sum());
         expect(result1.size).toBe(0);
 
@@ -271,14 +271,14 @@ describe("Event list combining", () => {
         const result = Event.combine(events, sum());
 
         expect(result.size).toEqual(2);
-        expect(`${result.get(0).getKey()}`).toBe("1d-1234");
-        expect(result.get(0).get("a")).toBe(7);
-        expect(result.get(0).get("b")).toBe(9);
-        expect(result.get(0).get("c")).toBe(11);
-        expect(`${result.get(1).getKey()}`).toBe("1d-1235");
-        expect(result.get(1).get("a")).toBe(1);
-        expect(result.get(1).get("b")).toBe(2);
-        expect(result.get(1).get("c")).toBe(3);
+        expect(`${result.get(0)?.getKey()}`).toBe("1d-1234");
+        expect(result.get(0)?.get("a")).toBe(7);
+        expect(result.get(0)?.get("b")).toBe(9);
+        expect(result.get(0)?.get("c")).toBe(11);
+        expect(`${result.get(1)?.getKey()}`).toBe("1d-1235");
+        expect(result.get(1)?.get("a")).toBe(1);
+        expect(result.get(1)?.get("b")).toBe(2);
+        expect(result.get(1)?.get("c")).toBe(3);
     });
 
     it("can sum multiple events together if they have different timestamps", () => {
@@ -291,7 +291,7 @@ describe("Event list combining", () => {
             event(ts3, Immutable.Map({ a: 1, b: 2, c: 3 }))
         ]);
         const result = Event.combine(events, sum());
-        expect(result.get(0).get("a")).toBe(7);
+        expect(result.get(0)?.get("a")).toBe(7);
     });
 });
 
@@ -300,7 +300,7 @@ const t2 = time(1445449200000);
 const t3 = time(1445449230000);
 const t4 = time(1445449260000);
 
-const EVENTS = [];
+const EVENTS: Array<Event<Time>> = [];
 EVENTS.push(
     event(
         t1,

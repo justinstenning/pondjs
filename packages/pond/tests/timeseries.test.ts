@@ -18,7 +18,7 @@ import Moment = moment.Moment;
 
 import { collection, Collection } from "../src/collection";
 import { duration } from "../src/duration";
-import { event, indexedEvent, timeEvent, timeRangeEvent } from "../src/event";
+import { event, Event, indexedEvent, timeEvent, timeRangeEvent } from "../src/event";
 import { avg, max, sum } from "../src/functions";
 import { index, Index } from "../src/index";
 import { time, Time } from "../src/time";
@@ -155,25 +155,45 @@ const BISECT_TEST_DATA = {
 const TRAFFIC_DATA_IN = {
     name: "star-cr5:to_anl_ip-a_v4",
     columns: ["time", "in"],
-    points: [[1400425947000, 52], [1400425948000, 18], [1400425949000, 26], [1400425950000, 93]]
+    points: [
+        [1400425947000, 52],
+        [1400425948000, 18],
+        [1400425949000, 26],
+        [1400425950000, 93]
+    ]
 };
 
 const TRAFFIC_DATA_OUT = {
     name: "star-cr5:to_anl_ip-a_v4",
     columns: ["time", "out"],
-    points: [[1400425947000, 34], [1400425948000, 13], [1400425949000, 67], [1400425950000, 91]]
+    points: [
+        [1400425947000, 34],
+        [1400425948000, 13],
+        [1400425949000, 67],
+        [1400425950000, 91]
+    ]
 };
 
 const PARTIAL_TRAFFIC_PART_A = {
     name: "star-cr5:to_anl_ip-a_v4",
     columns: ["time", "value"],
-    points: [[1400425947000, 34], [1400425948000, 13], [1400425949000, 67], [1400425950000, 91]]
+    points: [
+        [1400425947000, 34],
+        [1400425948000, 13],
+        [1400425949000, 67],
+        [1400425950000, 91]
+    ]
 };
 
 const PARTIAL_TRAFFIC_PART_B = {
     name: "star-cr5:to_anl_ip-a_v4",
     columns: ["time", "value"],
-    points: [[1400425951000, 65], [1400425952000, 86], [1400425953000, 27], [1400425954000, 72]]
+    points: [
+        [1400425951000, 65],
+        [1400425952000, 86],
+        [1400425953000, 27],
+        [1400425954000, 72]
+    ]
 };
 
 const TRAFFIC_BNL_TO_NEWY = {
@@ -454,7 +474,7 @@ describe("Creation", () => {
     });
 
     it("can create an series with a list of Events", () => {
-        const events = [];
+        const events: Array<Event<Time>> = [];
         events.push(timeEvent(time(new Date(2015, 7, 1)), Immutable.Map({ value: 27 })));
         events.push(timeEvent(time(new Date(2015, 8, 1)), Immutable.Map({ value: 14 })));
         const series = new TimeSeries({
@@ -487,7 +507,7 @@ describe("Creation", () => {
         });
 
         const c = new Collection(events);
-        const series = new TimeSeries({ name, collection: c });
+        const series = new TimeSeries({ collection: c });
         expect(series.size()).toBe(3);
     });
 
@@ -597,7 +617,7 @@ describe("Deep Event Data", () => {
     });
 
     it("can create a series with nested events", () => {
-        const events = [];
+        const events: Array<Event<Time>> = [];
         events.push(
             timeEvent(
                 time(new Date(2015, 6, 1)),
@@ -1116,7 +1136,11 @@ describe("Remapping Events in a TimeSeries", () => {
         const series = indexedSeries({
             name: "series",
             columns: ["index", "c", "d"],
-            points: [["1d-1234", 100, 200], ["1d-1235", 300, 400], ["1d-1236", 800, 900]]
+            points: [
+                ["1d-1234", 100, 200],
+                ["1d-1235", 300, 400],
+                ["1d-1236", 800, 900]
+            ]
         });
 
         const remapped = series.mapKeys<Time>((idx: Index) => idx.toTime(TimeAlignment.End));

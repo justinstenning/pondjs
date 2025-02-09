@@ -1,13 +1,9 @@
 {
     "transform": {
-        ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+        ".(ts|tsx)": "ts-jest"
     },
-    "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
+    "testResultsProcessor": "ts-jest",
     "testRegex": "(/tests/.*)\\.(ts|tsx|js)$",
     "testEnvironment": "node",
-    "moduleFileExtensions": [
-        "ts",
-        "tsx",
-        "js"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js"]
 }
