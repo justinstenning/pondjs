@@ -5,7 +5,20 @@ import { Index } from "./index";
 import { Key } from "./key";
 import { Time } from "./time";
 import { Node } from "./node";
-import { AggregationSpec, AlignmentOptions, CoalesceOptions, CollapseOptions, EventCallback, FillOptions, KeyedCollection, KeyedCollectionCallback, RateOptions, ReduceOptions, SelectOptions, WindowingOptions } from "./types";
+import {
+    AggregationSpec,
+    AlignmentOptions,
+    CoalesceOptions,
+    CollapseOptions,
+    EventCallback,
+    FillOptions,
+    KeyedCollection,
+    KeyedCollectionCallback,
+    RateOptions,
+    ReduceOptions,
+    SelectOptions,
+    WindowingOptions
+} from "./types";
 /**
  * @private
  *
@@ -84,7 +97,9 @@ export declare class EventStream<IN extends Key, S extends Key> extends StreamIn
      *
      * Both IN and OUT extend Key, which is Time, TimeRange or Index, typically.
      */
-    addEventToCollectorNode<OUT extends Key>(node: EventToKeyedCollection<IN, OUT>): KeyedCollectionStream<OUT, S>;
+    addEventToCollectorNode<OUT extends Key>(
+        node: EventToKeyedCollection<IN, OUT>
+    ): KeyedCollectionStream<OUT, S>;
     /**
      * Remaps each Event<T> in the stream to a new Event<M>.
      */
@@ -92,7 +107,9 @@ export declare class EventStream<IN extends Key, S extends Key> extends StreamIn
     /**
      * Remaps each Event<IN> in the stream to 0, 1 or many Event<OUT>s.
      */
-    flatMap<OUT extends Key>(mapper: (event: Event<IN>) => Immutable.List<Event<OUT>>): EventStream<OUT, S>;
+    flatMap<OUT extends Key>(
+        mapper: (event: Event<IN>) => Immutable.List<Event<OUT>>
+    ): EventStream<OUT, S>;
     /**
      * Reduces a sequence of past Event<IN>s in the stream to a single output Event<M>.
      */
@@ -296,7 +313,10 @@ export declare class EventStream<IN extends Key, S extends Key> extends StreamIn
  * Using this class you can `output()` that or `aggregate()` the `Collection`s
  * back to `Event`s.
  */
-export declare class KeyedCollectionStream<IN extends Key, S extends Key> extends StreamInterface<IN, S> {
+export declare class KeyedCollectionStream<IN extends Key, S extends Key> extends StreamInterface<
+    IN,
+    S
+> {
     constructor(stream: Stream<S>, tail: Node<Base, Base>);
     /**
      * @private
@@ -305,7 +325,9 @@ export declare class KeyedCollectionStream<IN extends Key, S extends Key> extend
      * processor that remaps a stream of `KeyedCollection`s to another stream of
      * `KeyedCollection`s.
      */
-    addKeyedCollectionToKeyedCollectionNode<OUT extends Key>(node: KeyedCollectionMap<IN, OUT>): KeyedCollectionStream<OUT, S>;
+    addKeyedCollectionToKeyedCollectionNode<OUT extends Key>(
+        node: KeyedCollectionMap<IN, OUT>
+    ): KeyedCollectionStream<OUT, S>;
     /**
      * @private
      *
@@ -313,7 +335,9 @@ export declare class KeyedCollectionStream<IN extends Key, S extends Key> extend
      * processor that we remap a stream of `KeyedCollection`s back to `Event`s. An
      * example would be an aggregation.
      */
-    addKeyedCollectionToEventNode<OUT extends Key>(node: KeyedCollectionToEvent<IN, OUT>): EventStream<OUT, S>;
+    addKeyedCollectionToEventNode<OUT extends Key>(
+        node: KeyedCollectionToEvent<IN, OUT>
+    ): EventStream<OUT, S>;
     /**
      * An output, specified as an `KeyedCollectionCallback`:
      * `(collection: Collection<T>, key: string) => void`.
@@ -365,10 +389,19 @@ export declare class KeyedCollectionStream<IN extends Key, S extends Key> extend
      */
     aggregate(spec: AggregationSpec<IN>): EventStream<Index, S>;
 }
-export declare type EventToKeyedCollection<S extends Key, T extends Key> = Node<Event<S>, KeyedCollection<T>>;
-export declare type KeyedCollectionToEvent<S extends Key, T extends Key> = Node<KeyedCollection<S>, Event<T>>;
-export declare type KeyedCollectionMap<S extends Key, T extends Key> = Node<KeyedCollection<S>, KeyedCollection<T>>;
-export declare type EventMap<S extends Key, T extends Key> = Node<Event<S>, Event<T>>;
+export type EventToKeyedCollection<S extends Key, T extends Key> = Node<
+    Event<S>,
+    KeyedCollection<T>
+>;
+export type KeyedCollectionToEvent<S extends Key, T extends Key> = Node<
+    KeyedCollection<S>,
+    Event<T>
+>;
+export type KeyedCollectionMap<S extends Key, T extends Key> = Node<
+    KeyedCollection<S>,
+    KeyedCollection<T>
+>;
+export type EventMap<S extends Key, T extends Key> = Node<Event<S>, Event<T>>;
 /**
  * `Stream` and its associated objects are designed for processing of incoming
  * `Event` streams at real time. This is useful for live dashboard situations or

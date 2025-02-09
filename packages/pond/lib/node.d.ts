@@ -4,7 +4,19 @@ import { Event } from "./event";
 import { Index } from "./index";
 import { Key } from "./key";
 import { TimeRange } from "./timerange";
-import { AggregationSpec, AlignmentOptions, CollapseOptions, EventCallback, FillOptions, KeyedCollection, KeyedCollectionCallback, RateOptions, ReduceOptions, SelectOptions, WindowingOptions } from "./types";
+import {
+    AggregationSpec,
+    AlignmentOptions,
+    CollapseOptions,
+    EventCallback,
+    FillOptions,
+    KeyedCollection,
+    KeyedCollectionCallback,
+    RateOptions,
+    ReduceOptions,
+    SelectOptions,
+    WindowingOptions
+} from "./types";
 /**
  * @private
  *
@@ -42,7 +54,10 @@ export declare class EventInputNode<T extends Key> extends Node<Event<T>, Event<
  * A node which will be a top of the chain input node. It will accept `KeyedCollection`s
  * and pass them down the processing chain.
  */
-export declare class KeyedCollectionInputNode<T extends Key> extends Node<KeyedCollection<T>, KeyedCollection<T>> {
+export declare class KeyedCollectionInputNode<T extends Key> extends Node<
+    KeyedCollection<T>,
+    KeyedCollection<T>
+> {
     constructor();
     process(e: KeyedCollection<T>): Immutable.List<KeyedCollection<T>>;
 }
@@ -53,16 +68,19 @@ export declare class KeyedCollectionInputNode<T extends Key> extends Node<KeyedC
 export declare class EventOutputNode<T extends Key> extends Node<Event<T>, Event<T>> {
     private callback;
     constructor(callback: EventCallback<T>);
-    process(e: Event<T>): Immutable.List<any>;
+    process(e: Event<T>): Immutable.List<Event<T>>;
 }
 /**
  * @private
  *
  */
-export declare class KeyedCollectionOutputNode<T extends Key> extends Node<KeyedCollection<T>, KeyedCollection<T>> {
+export declare class KeyedCollectionOutputNode<T extends Key> extends Node<
+    KeyedCollection<T>,
+    KeyedCollection<T>
+> {
     private callback;
     constructor(callback: KeyedCollectionCallback<T>);
-    process(keyedCollection: KeyedCollection<T>): Immutable.List<any>;
+    process(keyedCollection: KeyedCollection<T>): Immutable.List<KeyedCollection<T>>;
 }
 /**
  * @private

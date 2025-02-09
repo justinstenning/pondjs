@@ -17,7 +17,7 @@ import { Aggregation, AlignmentOptions, RateOptions, WindowingOptions } from "./
 export interface AggregationSpec<T extends Key> {
     [dest: string]: Aggregation<T>;
 }
-export declare type GroupingFunction<T extends Key> = (e: Event<T>) => string;
+export type GroupingFunction<T extends Key> = (e: Event<T>) => string;
 /**
  * Represents an association of group names to `Collection`s. Typically
  * this is the resulting representation of performing a `groupBy()` on
@@ -58,7 +58,10 @@ export declare class GroupedCollection<T extends Key> {
      * and the result of calling `window()` on this will be a `WindowedCollection`.
      */
     constructor(collectionMap: Immutable.Map<string, SortedCollection<T>>);
-    constructor(fieldSpec: string | string[] | GroupingFunction<T>, collection: SortedCollection<T>);
+    constructor(
+        fieldSpec: string | string[] | GroupingFunction<T>,
+        collection: SortedCollection<T>
+    );
     /**
      * Gets the `Collection` contained in the `grouping` specified.
      */
@@ -91,7 +94,9 @@ export declare class GroupedCollection<T extends Key> {
      * const wildcatsTotal = rolledUp.get("wildcats").get("total"); // 13
      * ```
      */
-    aggregate(aggregationSpec: AggregationSpec<T>): Immutable.Map<string, Immutable.Map<string, any>>;
+    aggregate(
+        aggregationSpec: AggregationSpec<T>
+    ): Immutable.Map<string, Immutable.Map<string, any>>;
     /**
      * Forms a single group from this `GroupedCollection`, returning a new
      * `GroupedCollection` with a single key `_` mapping to a `Collection`
@@ -132,5 +137,8 @@ export declare class GroupedCollection<T extends Key> {
      */
     rate(options: RateOptions): GroupedCollection<TimeRange>;
 }
-declare function groupedFactory<T extends Key>(fieldSpec: string | string[] | GroupingFunction<T>, collection: SortedCollection<T>): GroupedCollection<T>;
+declare function groupedFactory<T extends Key>(
+    fieldSpec: string | string[] | GroupingFunction<T>,
+    collection: SortedCollection<T>
+): GroupedCollection<T>;
 export { groupedFactory as grouped };
