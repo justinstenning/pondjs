@@ -1,4 +1,3 @@
-"use strict";
 /**
  *  Copyright (c) 2016-2017, The Regents of the University of California,
  *  through Lawrence Berkeley National Laboratory (subject to receipt
@@ -8,10 +7,8 @@
  *  This source code is licensed under the BSD-style license found in the
  *  LICENSE file in the root directory of this source tree.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Collapse = void 0;
-const Immutable = require("immutable");
-const processor_1 = require("./processor");
+import * as Immutable from "immutable";
+import { Processor } from "./processor";
 /**
  * A processor which takes a fieldSpec and returns a new event
  * with a new column that is a collapsed result of the selected
@@ -19,7 +16,7 @@ const processor_1 = require("./processor");
  * function. Optionally the new column can completely replace
  * the existing columns in the event.
  */
-class Collapse extends processor_1.Processor {
+export class Collapse extends Processor {
     constructor(options) {
         super();
         this.options = options;
@@ -35,5 +32,4 @@ class Collapse extends processor_1.Processor {
         ]);
     }
 }
-exports.Collapse = Collapse;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29sbGFwc2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvY29sbGFwc2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOzs7Ozs7OztHQVFHOzs7QUFFSCx1Q0FBdUM7QUFLdkMsMkNBQXdDO0FBSXhDOzs7Ozs7R0FNRztBQUNILE1BQWEsUUFBd0IsU0FBUSxxQkFBZTtJQUN4RCxZQUFvQixPQUF3QjtRQUN4QyxLQUFLLEVBQUUsQ0FBQztRQURRLFlBQU8sR0FBUCxPQUFPLENBQWlCO0lBRTVDLENBQUM7SUFDRCxRQUFRLENBQUMsS0FBZTtRQUNwQixPQUFPLFNBQVMsQ0FBQyxJQUFJLENBQUM7WUFDbEIsS0FBSyxDQUFDLFFBQVEsQ0FDVixJQUFJLENBQUMsT0FBTyxDQUFDLGFBQWEsRUFDMUIsSUFBSSxDQUFDLE9BQU8sQ0FBQyxTQUFTLEVBQ3RCLElBQUksQ0FBQyxPQUFPLENBQUMsT0FBTyxFQUNwQixJQUFJLENBQUMsT0FBTyxDQUFDLE1BQU0sQ0FDdEI7U0FDSixDQUFDLENBQUM7SUFDUCxDQUFDO0NBQ0o7QUFkRCw0QkFjQyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29sbGFwc2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvY29sbGFwc2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7O0dBUUc7QUFFSCxPQUFPLEtBQUssU0FBUyxNQUFNLFdBQVcsQ0FBQztBQUt2QyxPQUFPLEVBQUUsU0FBUyxFQUFFLE1BQU0sYUFBYSxDQUFDO0FBSXhDOzs7Ozs7R0FNRztBQUNILE1BQU0sT0FBTyxRQUF3QixTQUFRLFNBQWU7SUFDeEQsWUFBb0IsT0FBd0I7UUFDeEMsS0FBSyxFQUFFLENBQUM7UUFEUSxZQUFPLEdBQVAsT0FBTyxDQUFpQjtJQUU1QyxDQUFDO0lBQ0QsUUFBUSxDQUFDLEtBQWU7UUFDcEIsT0FBTyxTQUFTLENBQUMsSUFBSSxDQUFDO1lBQ2xCLEtBQUssQ0FBQyxRQUFRLENBQ1YsSUFBSSxDQUFDLE9BQU8sQ0FBQyxhQUFhLEVBQzFCLElBQUksQ0FBQyxPQUFPLENBQUMsU0FBUyxFQUN0QixJQUFJLENBQUMsT0FBTyxDQUFDLE9BQU8sRUFDcEIsSUFBSSxDQUFDLE9BQU8sQ0FBQyxNQUFNLENBQ3RCO1NBQ0osQ0FBQyxDQUFDO0lBQ1AsQ0FBQztDQUNKIn0=

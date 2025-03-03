@@ -1,4 +1,3 @@
-"use strict";
 /*
  *  Copyright (c) 2017, The Regents of the University of California,
  *  through Lawrence Berkeley National Laboratory (subject to receipt
@@ -8,11 +7,8 @@
  *  This source code is licensed under the BSD-style license found in the
  *  LICENSE file in the root directory of this source tree.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Key = void 0;
 /**
  * Defines the interface for all event keys
  */
-class Key {}
-exports.Key = Key;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoia2V5LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL2tleS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7O0dBUUc7OztBQUVIOztHQUVHO0FBQ0gsTUFBc0IsR0FBRztDQU94QjtBQVBELGtCQU9DIn0=
+export class Key {}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoia2V5LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL2tleS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7R0FRRztBQUVIOztHQUVHO0FBQ0gsTUFBTSxPQUFnQixHQUFHO0NBT3hCIn0=

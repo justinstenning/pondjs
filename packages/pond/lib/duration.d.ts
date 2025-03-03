@@ -1,4 +1,4 @@
-import * as moment from "moment";
+import moment from "moment";
 /**
  * A `Duration` is a fixed length of time, unattached to any point in time.
  *

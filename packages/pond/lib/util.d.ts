@@ -8,7 +8,7 @@
  *  LICENSE file in the root directory of this source tree.
  */
 import * as Immutable from "immutable";
-import * as moment from "moment-timezone";
+import moment from "moment-timezone";
 import Moment = moment.Moment;
 import { Duration } from "./duration";
 import { Index } from "./index";
@@ -90,7 +90,9 @@ declare function indexFromArgs(arg1: string | Index, arg2?: string): Index;
  * Function to turn a constructor arg into an `Immutable.Map`
  * of data.
  */
-declare function dataFromArg(arg: {} | Immutable.Map<string, any> | number | string): Immutable.Map<string, any>;
+declare function dataFromArg(
+    arg: {} | Immutable.Map<string, any> | number | string
+): Immutable.Map<string, any>;
 /**
  * Convert the `field spec` into a list if it is not already.
  */

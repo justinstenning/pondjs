@@ -1,4 +1,3 @@
-"use strict";
 /**
  *  Copyright (c) 2016-2017, The Regents of the University of California,
  *  through Lawrence Berkeley National Laboratory (subject to receipt
@@ -8,15 +7,13 @@
  *  This source code is licensed under the BSD-style license found in the
  *  LICENSE file in the root directory of this source tree.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Select = void 0;
-const Immutable = require("immutable");
-const processor_1 = require("./processor");
+import * as Immutable from "immutable";
+import { Processor } from "./processor";
 /**
  * A `Processor` which takes a `fieldSpec` and returns a new `Event`
  * with only those selected columns.
  */
-class Select extends processor_1.Processor {
+export class Select extends Processor {
     constructor(options) {
         super();
         this.options = options;
@@ -25,5 +22,4 @@ class Select extends processor_1.Processor {
         return Immutable.List([event.select(this.options.fields)]);
     }
 }
-exports.Select = Select;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VsZWN0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL3NlbGVjdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7O0dBUUc7OztBQUVILHVDQUF1QztBQUt2QywyQ0FBd0M7QUFJeEM7OztHQUdHO0FBQ0gsTUFBYSxNQUFzQixTQUFRLHFCQUFlO0lBQ3RELFlBQW9CLE9BQXNCO1FBQ3RDLEtBQUssRUFBRSxDQUFDO1FBRFEsWUFBTyxHQUFQLE9BQU8sQ0FBZTtJQUUxQyxDQUFDO0lBQ0QsUUFBUSxDQUFDLEtBQWU7UUFDcEIsT0FBTyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUMsS0FBSyxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUMvRCxDQUFDO0NBQ0o7QUFQRCx3QkFPQyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VsZWN0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL3NlbGVjdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7R0FRRztBQUVILE9BQU8sS0FBSyxTQUFTLE1BQU0sV0FBVyxDQUFDO0FBS3ZDLE9BQU8sRUFBRSxTQUFTLEVBQUUsTUFBTSxhQUFhLENBQUM7QUFJeEM7OztHQUdHO0FBQ0gsTUFBTSxPQUFPLE1BQXNCLFNBQVEsU0FBZTtJQUN0RCxZQUFvQixPQUFzQjtRQUN0QyxLQUFLLEVBQUUsQ0FBQztRQURRLFlBQU8sR0FBUCxPQUFPLENBQWU7SUFFMUMsQ0FBQztJQUNELFFBQVEsQ0FBQyxLQUFlO1FBQ3BCLE9BQU8sU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDLEtBQUssQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDL0QsQ0FBQztDQUNKIn0=

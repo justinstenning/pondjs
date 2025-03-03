@@ -1,4 +1,3 @@
-"use strict";
 /*
  *  Copyright (c) 2017, The Regents of the University of California,
  *  through Lawrence Berkeley National Laboratory (subject to receipt
@@ -8,11 +7,8 @@
  *  This source code is licensed under the BSD-style license found in the
  *  LICENSE file in the root directory of this source tree.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Base = void 0;
 /**
  * Abstract base class used by classes which maybe passed within the streaming code.
  */
-class Base {}
-exports.Base = Base;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYmFzZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9iYXNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7R0FRRzs7O0FBSUg7O0dBRUc7QUFDSCxNQUFzQixJQUFJO0NBQUc7QUFBN0Isb0JBQTZCIn0=
+export class Base {}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYmFzZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9iYXNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7OztHQVFHO0FBSUg7O0dBRUc7QUFDSCxNQUFNLE9BQWdCLElBQUk7Q0FBRyJ9

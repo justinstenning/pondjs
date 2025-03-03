@@ -1,4 +1,3 @@
-"use strict";
 /*
  *  Copyright (c) 2017, The Regents of the University of California,
  *  through Lawrence Berkeley National Laboratory (subject to receipt
@@ -8,8 +7,6 @@
  *  This source code is licensed under the BSD-style license found in the
  *  LICENSE file in the root directory of this source tree.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Processor = void 0;
 /**
  * Internal abstract base class for streaming chains. A `Processor` is something
  * that implements at a minimum one method: `addEvent()`. The return of that
@@ -24,6 +21,5 @@ exports.Processor = void 0;
  * a new set of `Event`s. It is also used when implementing stream processing that
  * requires `align` processing.
  */
-class Processor {}
-exports.Processor = Processor;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJvY2Vzc29yLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL3Byb2Nlc3Nvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7O0dBUUc7OztBQU9IOzs7Ozs7Ozs7Ozs7O0dBYUc7QUFDSCxNQUFzQixTQUFTO0NBRTlCO0FBRkQsOEJBRUMifQ==
+export class Processor {}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJvY2Vzc29yLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL3Byb2Nlc3Nvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7R0FRRztBQU9IOzs7Ozs7Ozs7Ozs7O0dBYUc7QUFDSCxNQUFNLE9BQWdCLFNBQVM7Q0FFOUIifQ==
