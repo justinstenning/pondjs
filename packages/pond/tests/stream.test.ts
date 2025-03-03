@@ -5,7 +5,7 @@ declare const expect: any;
 import * as Immutable from "immutable";
 import Moment = moment.Moment;
 import * as _ from "lodash";
-import * as moment from "moment";
+import moment from "moment";
 
 import { Collection } from "../src/collection";
 import { duration } from "../src/duration";
@@ -251,7 +251,11 @@ describe("Streaming", () => {
     });
 
     it("can selection of specific event fields", () => {
-        const DATA = [[1471824030000, 1, 2, 3], [1471824105000, 4, 5, 6], [1471824210000, 7, 8, 9]];
+        const DATA = [
+            [1471824030000, 1, 2, 3],
+            [1471824105000, 4, 5, 6],
+            [1471824210000, 7, 8, 9]
+        ];
 
         const list = DATA.map(e => {
             return event(time(e[0]), Immutable.Map({ a: e[1], b: e[2], c: e[3] }));
@@ -281,7 +285,11 @@ describe("Streaming", () => {
     });
 
     it("can collapse of specific event fields", () => {
-        const DATA = [[1471824030000, 1, 2, 3], [1471824105000, 4, 5, 6], [1471824210000, 7, 8, 9]];
+        const DATA = [
+            [1471824030000, 1, 2, 3],
+            [1471824105000, 4, 5, 6],
+            [1471824210000, 7, 8, 9]
+        ];
 
         const list = DATA.map(e => {
             return event(time(e[0]), Immutable.Map({ a: e[1], b: e[2], c: e[3] }));

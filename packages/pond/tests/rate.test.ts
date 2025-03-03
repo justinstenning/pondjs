@@ -2,7 +2,7 @@ declare const it: any;
 declare const expect: any;
 
 import * as Immutable from "immutable";
-import * as moment from "moment";
+import moment from "moment";
 import Moment = moment.Moment;
 
 import { duration } from "../src/duration";
@@ -44,7 +44,10 @@ it("can calculate the rate using Collection.rate()", () => {
 });
 
 it("can do basic rate using Collection.rate()", () => {
-    const list = [[89000, 100], [181000, 200]].map(e => {
+    const list = [
+        [89000, 100],
+        [181000, 200]
+    ].map(e => {
         return event(time(e[0]), Immutable.Map({ value: e[1] }));
     });
 
@@ -67,7 +70,10 @@ it("can do basic rate using Collection.rate()", () => {
 });
 
 it("can output nulls for negative values", () => {
-    const list = [[89000, 100], [181000, 50]].map(e => {
+    const list = [
+        [89000, 100],
+        [181000, 50]
+    ].map(e => {
         return event(time(e[0]), Immutable.Map({ value: e[1] }));
     });
 
@@ -107,7 +113,13 @@ it("can output nulls for negative values", () => {
 });
 
 it("can output a null rate when data has nulls", () => {
-    const INPUT = [[0, 10], [30000, 40], [60000, null], [90000, 100], [120000, 130]];
+    const INPUT = [
+        [0, 10],
+        [30000, 40],
+        [60000, null],
+        [90000, 100],
+        [120000, 130]
+    ];
 
     const list = INPUT.map(e => {
         return event(time(e[0]), Immutable.Map({ in: e[1] }));

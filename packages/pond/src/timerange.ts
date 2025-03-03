@@ -10,7 +10,7 @@
 
 import * as Immutable from "immutable";
 import * as _ from "lodash";
-import * as moment from "moment";
+import moment from "moment";
 import Moment = moment.Moment;
 
 import { Key } from "./key";

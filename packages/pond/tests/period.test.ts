@@ -2,7 +2,7 @@ declare const describe: any;
 declare const it: any;
 declare const expect: any;
 
-import * as moment from "moment";
+import moment from "moment";
 import { duration } from "../src/duration";
 import { period, Period } from "../src/period";
 import { time } from "../src/time";

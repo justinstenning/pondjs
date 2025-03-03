@@ -8,7 +8,7 @@
  *  LICENSE file in the root directory of this source tree.
  */
 
-import * as moment from "moment";
+import moment from "moment";
 import Moment = moment.Moment;
 
 import { Key } from "./key";

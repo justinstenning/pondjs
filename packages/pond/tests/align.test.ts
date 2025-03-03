@@ -14,7 +14,7 @@ declare const expect: any;
 declare const beforeEach: any;
 
 import * as Immutable from "immutable";
-import * as moment from "moment";
+import moment from "moment";
 import Moment = moment.Moment;
 
 import { collection } from "../src/collection";
@@ -103,7 +103,11 @@ it("can do alignment on already align data", () => {
         name: "aligned",
         tz: "Etc/UTC",
         columns: ["time", "value"],
-        points: [[90000, 5], [120000, 10], [185000, 12]]
+        points: [
+            [90000, 5],
+            [120000, 10],
+            [185000, 12]
+        ]
     });
 
     const aligned = ts.align(alignOptions);

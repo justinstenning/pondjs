@@ -13,7 +13,7 @@ declare const it: any;
 declare const expect: any;
 
 import * as Immutable from "immutable";
-import * as moment from "moment";
+import moment from "moment";
 import Moment = moment.Moment;
 
 import { collection, Collection } from "../src/collection";

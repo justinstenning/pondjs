@@ -10,7 +10,7 @@
 
 import * as Immutable from "immutable";
 import * as _ from "lodash";
-import * as moment from "moment-timezone";
+import moment from "moment-timezone";
 
 import { Duration } from "./duration";
 import { Index, index } from "./index";

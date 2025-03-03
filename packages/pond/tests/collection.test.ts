@@ -4,7 +4,7 @@ declare const expect: any;
 declare const beforeEach: any;
 
 import * as Immutable from "immutable";
-import * as moment from "moment";
+import moment from "moment";
 import Moment = moment.Moment;
 
 import { collection } from "../src/collection";

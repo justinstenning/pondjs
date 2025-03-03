@@ -11,7 +11,7 @@
 declare const it: any;
 declare const expect: any;
 
-import * as moment from "moment";
+import moment from "moment";
 import { duration } from "../src/duration";
 import { timerange } from "../src/timerange";
 import util from "../src/util";
